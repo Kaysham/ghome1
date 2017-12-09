@@ -52,12 +52,15 @@ def webhaak():
 def processRequest2(req):
     if req.get("result").get("action") != "Djamboui":
         return {}
-    baseurl = "http://djamboui.dyndns.org/V1/notifications/"
+    baseurl = "http://djamboui.dyndns.org/V1/ghome/"
 	yql_query = "decko"
     yql_url = baseurl + urlencode({'IDPuceBouchon': yql_query}) + "&format=json"
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = data
+	print("Responseasse:")
+    print(res)
+
     return res
 
 	
