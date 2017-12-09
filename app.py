@@ -58,6 +58,8 @@ def processRequest2(req):
     baseurl = "http://djamboui.dyndns.org/V1/ghome/"
     yql_query = "decko"
     yql_url = baseurl + urlencode({'p_ghome': yql_query}) + "&format=json"
+    print("yql_url=",yql_url)
+    
     result = urlopen(yql_url).read()
     data = json.loads(result)
     print("data=",data)
