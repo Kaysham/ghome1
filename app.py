@@ -33,6 +33,35 @@ from flask import make_response
 app = Flask(__name__)
 
 
+@app.route('/webhaak', methods=['POST'])
+def webhaak():
+    req = request.get_json(silent=True, force=True)
+
+    print("Requestasse:")
+    print(json.dumps(req, indent=4))
+
+    res = processRequest2(req)
+
+    res = json.dumps(res, indent=4)
+    # print(res)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+
+def processRequest2(req):
+    if req.get("result").get("action") != "Djamboui":
+        return {}
+    baseurl = "http://djamboui.dyndns.org/V1/notifications/"
+	yql_query = "decko"
+    yql_url = baseurl + urlencode({'IDPuceBouchon': yql_query}) + "&format=json"
+    result = urlopen(yql_url).read()
+    data = json.loads(result)
+    res = data
+    return res
+
+	
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
