@@ -34,7 +34,7 @@ app = Flask(__name__)
 
 
 @app.route('/webhook', methods=['POST'])
-def webhaak():
+def webhook():
     req = request.get_json(silent=True, force=True)
 
     print("Requestasse:")
@@ -51,15 +51,16 @@ def webhaak():
 
 def processRequest2(req):
     if req.get("result").get("action") != "Djamboui":
-        return {}
+       return {}
     baseurl = "http://djamboui.dyndns.org/V1/ghome/"
-	yql_query = "decko"
+    yql_query = "decko"
     yql_url = baseurl + urlencode({'IDPuceBouchon': yql_query}) + "&format=json"
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = data
-	print("Responseasse:")
+    print("Responseasse:")
     print(res)
+    print(data)
 
     return res
 
