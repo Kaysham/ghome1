@@ -52,15 +52,18 @@ def webhook():
 def processRequest2(req):
     if req.get("result").get("action") != "Djamboui":
        return {}
+
+    print("Responseasse:")
+
     baseurl = "http://djamboui.dyndns.org/V1/ghome/"
     yql_query = "decko"
-    yql_url = baseurl + urlencode({'IDPuceBouchon': yql_query}) + "&format=json"
+    yql_url = baseurl + urlencode({'p_ghome': yql_query}) + "&format=json"
     result = urlopen(yql_url).read()
     data = json.loads(result)
+    print("data=",data)
+
     res = data
-    print("Responseasse:")
-    print(res)
-    print(data)
+    print("res="res)
 
     return res
 
