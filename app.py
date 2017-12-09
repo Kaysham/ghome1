@@ -43,7 +43,7 @@ def webhook():
     res = processRequest2(req)
 
     res = json.dumps(res, indent=4)
-    # print(res)
+    print("retour res=",res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -63,7 +63,7 @@ def processRequest2(req):
     print("data=",data)
 
     res = data
-    print("res="res)
+    print("res=",res)
 
     return res
 
