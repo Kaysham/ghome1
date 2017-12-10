@@ -65,12 +65,23 @@ def processRequest2(req):
     connection.request('POST', '/V1/ghome/kakane', json_foo, headers=headers)
     response = connection.getresponse()
 
-    res = response.read().decode()
-    print(res)
+    data = response.read().decode()
+    print(data)
+    
+    donnees     = json.loads(data)
+    speech      = donnees["speech"]
+    displayText = donnees["displayText"]
+    source      = donnees["source"]
+   
+    return {
+      "speech": speech,
+      "displayText": speech,
+      # "data": data,
+      # "contextOut": [],
+      "source": source
 
-    return res
-
-
+    }
+      
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
