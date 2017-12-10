@@ -24,6 +24,7 @@ from urllib.error import HTTPError
 
 import json
 import os
+import http.client
 
 from flask import Flask
 from flask import request
@@ -55,13 +56,19 @@ def processRequest2(req):
 
     print("Responseasse:")
 
-    baseurl = "http://djamboui.dyndns.org/V1/ghome/"
-    yql_query = "decko"
-    yql_url = baseurl + urlencode({'p_ghome': yql_query}) + "&format=json"
-    print("yql_url=",yql_url)
+    conn = http.client.HTTPConnection("djamboui,dyndns,org")
+
+    headers = {
+      'Content-Type': "application/json",
+      'Cache-Control': "no-cache"
+    }
+    conn.request("POST", "V1,ghome,1256", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+
+    print(data.decode("utf-8"))
     
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
     print("data=",data)
 
     res = data
