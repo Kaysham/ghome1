@@ -56,13 +56,18 @@ def processRequest2(req):
 
     print("Responseasse:")
 
+    result     = req.get("result")
+    parameters = result.get("parameters")
+    p_ghome    = parameters.get("p_ghome")
+
     connection = http.client.HTTPConnection('djamboui.dyndns.org')
     headers = {'Content-type': 'application/json'}
 
     foo = {'text': 'Hello world github/linguist#1 **cool**, and #1!'}
     json_foo = json.dumps(foo)
 
-    connection.request('POST', '/V1/ghome/kakane', json_foo, headers=headers)
+    url_webservice = "/V1/ghome/" + p_ghome
+    connection.request('POST', url_webservice, json_foo, headers=headers)
     response = connection.getresponse()
 
     data = response.read().decode()
