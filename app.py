@@ -66,7 +66,7 @@ def processRequest2(req):
     foo = {'text': 'Hello world github/linguist#1 **cool**, and #1!'}
     json_foo = json.dumps(foo)
 
-    url_webservice = "/V1/ghome/" + p_ghome + " yoop"
+    url_webservice = "/V1/ghome/" + p_ghome 
     connection.request('POST', url_webservice, json_foo, headers=headers)
     response = connection.getresponse()
 
