@@ -83,7 +83,7 @@ def processRequest2(req):
    
     return {
       "speech": speech,
-      "displayText": speech,
+      "displayText": displayText,
       # "data": data,
       # "contextOut": [],
       "source": source
