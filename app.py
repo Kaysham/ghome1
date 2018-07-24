@@ -57,15 +57,16 @@ def processRequest2(req):
     # print("Responseasse:")
     result     = req.get("result")
     parameters = result.get("parameters")
-    prenom     = parameters.get("p_ghome")
+    p_action   = parameters.get("p_action")
+    p_objet    = parameters.get("p_objet")
 
     connection = http.client.HTTPConnection('djamboui.dyndns.org')
     headers = {'Content-type': 'application/json'}
 
     #foo = {"Action":"allumer","Objet":"lampe"}
     foo = {}
-    foo["Action"] = "allumer"
-    foo["Objet"]  = "lampe"
+    foo["Action"] = p_action
+    foo["Objet"]  = p_objet
     
     json_foo = json.dumps(foo)
  
