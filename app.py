@@ -62,7 +62,11 @@ def processRequest2(req):
     connection = http.client.HTTPConnection('djamboui.dyndns.org')
     headers = {'Content-type': 'application/json'}
 
-    foo = {"Action":"eteindre","Objet":"lampe"}
+    #foo = {"Action":"allumer","Objet":"lampe"}
+    foo = {}
+    foo["Action"] = "allumer"
+    foo["Objet"]  = "lampe"
+    
     json_foo = json.dumps(foo)
  
     url_webservice = "/V1/SafireCommande"
