@@ -55,7 +55,6 @@ def processRequest2(req):
        return {}
 
     print("Responseasse:")
-
     result     = req.get("result")
     parameters = result.get("parameters")
     p_ghome    = parameters.get("p_ghome")
