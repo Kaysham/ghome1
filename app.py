@@ -54,10 +54,10 @@ def processRequest2(req):
     if req.get("result").get("action") != "Djamboui":
        return {}
 
-    print("Responseasse:")
+    # print("Responseasse:")
     result     = req.get("result")
     parameters = result.get("parameters")
-    p_ghome    = parameters.get("p_ghome")
+    prenom     = parameters.get("p_ghome")
 
     connection = http.client.HTTPConnection('djamboui.dyndns.org')
     headers = {'Content-type': 'application/json'}
@@ -67,7 +67,7 @@ def processRequest2(req):
  
     url_webservice = "/V1/Bonjour"
     # connection.request('POST', url_webservice, json_foo, headers=headers)
-    connection.request('POST', url_webservice, p_ghome, headers=headers)
+    connection.request('POST', url_webservice, prenom, headers=headers)
     response = connection.getresponse()
 
     data = response.read().decode()
