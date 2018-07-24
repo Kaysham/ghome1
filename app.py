@@ -64,6 +64,8 @@ def processRequest2(req):
 
     foo = "Pierre"
     json_foo = json.dumps(foo)
+    json_foo = foo
+    
     print(json_foo)
 
     url_webservice = "/V1/Bonjour"
