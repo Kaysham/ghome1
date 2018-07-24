@@ -62,13 +62,11 @@ def processRequest2(req):
     connection = http.client.HTTPConnection('djamboui.dyndns.org')
     headers = {'Content-type': 'application/json'}
 
-    foo = {"Pierre"}
+    foo = {"p_prenom":"Pierre"}
     json_foo = json.dumps(foo)
     print(json_foo)
-    #json_foo = json.dumps(p_ghome)
 
     url_webservice = "/V1/Bonjour"
-    #connection.request('GET', url_webservice, json_foo, headers=headers)
     connection.request('POST', url_webservice, json_foo, headers=headers)
     response = connection.getresponse()
 
