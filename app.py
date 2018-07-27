@@ -70,7 +70,7 @@ def processRequest2(req):
     
     json_foo = json.dumps(foo)
  
-    url_webservice = "/V1/SafireCommande"
+    url_webservice = "/Safire/Commande"
     connection.request('POST', url_webservice, json_foo, headers=headers)
     response = connection.getresponse()
 
