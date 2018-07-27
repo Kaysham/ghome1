@@ -60,7 +60,7 @@ def processRequest2(req):
     p_action   = parameters.get("p_action")
     p_objet    = parameters.get("p_objet")
 
-    connection = http.client.HTTPConnection('djamboui.dyndns.org')
+    connection = http.client.HTTPConnection('testsced.kalanda.info')
     headers = {'Content-type': 'application/json'}
 
     #foo = {"Action":"allumer","Objet":"lampe"}
